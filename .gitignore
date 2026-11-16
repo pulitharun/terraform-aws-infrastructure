@@ -1,0 +1,44 @@
+# Terraform working directories
+**/.terraform/*
+
+# Terraform state files and backups
+*.tfstate
+*.tfstate.*
+*tfstate*
+terraform-state-*.json
+terraform-state-backup.json
+*.tfplan
+*.tfstate.backup
+
+# Sensitive Terraform variables
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# AWS credentials and SSH keys
+.aws/
+*.pem
+*.key
+id_rsa
+id_ed25519
+terraform-lab-ec2
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Crash logs
+crash.log
+crash.*.log
