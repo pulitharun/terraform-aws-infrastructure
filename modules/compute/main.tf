@@ -1,7 +1,7 @@
 
 resource "aws_key_pair" "terraform_lab_key" {
   key_name   = "terraform-lab-key"
-  public_key = file(pathexpand("~/.ssh/terraform-lab-ec2.pub"))
+  public_key = var.ssh_public_key
 
   tags = {
     Name = "terraform-lab-key"

@@ -9,6 +9,7 @@ module "compute" {
   source            = "./modules/compute"
   subnet_id         = module.networking.public_subnet_id
   security_group_id = module.networking.security_group_id
+  ssh_public_key    = var.ssh_public_key
 }
 
 # MONITORING MODULE

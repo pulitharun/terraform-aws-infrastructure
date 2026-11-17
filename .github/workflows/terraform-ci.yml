@@ -34,4 +34,6 @@ jobs:
         run: terraform init -backend=false -input=false
 
       - name: Validate Terraform configuration
+        env:
+          TF_VAR_ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPEotE+2OPRt5f1aMHENZhxXlmOA8fD1mB/Wxjpp6sf terraform-lab-key"
         run: terraform validate -no-color
