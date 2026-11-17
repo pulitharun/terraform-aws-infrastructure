@@ -16,6 +16,10 @@ resource "aws_instance" "terraform_lab_ec2" {
   key_name                    = aws_key_pair.terraform_lab_key.key_name
   associate_public_ip_address = true
 
+
+  user_data                   = file("${path.module}/scripts/install_nginx.sh")
+  user_data_replace_on_change = false
+
   root_block_device {
     volume_size = 8
     volume_type = "gp3"

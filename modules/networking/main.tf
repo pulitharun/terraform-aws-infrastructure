@@ -77,3 +77,17 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh_my_ip" {
 
   description = "SSH access from my current public IP"
 }
+
+resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+  security_group_id = aws_security_group.terraform_lab_sg.id
+
+  description = "Allow HTTP traffic to Nginx"
+  ip_protocol = "tcp"
+  from_port   = 80
+  to_port     = 80
+  cidr_ipv4   = "0.0.0.0/0"
+
+  tags = {
+    Name = "terraform-lab-http"
+  }
+}
