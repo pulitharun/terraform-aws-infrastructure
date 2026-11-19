@@ -25,6 +25,11 @@ resource "aws_instance" "terraform_lab_ec2" {
     volume_type = "gp3"
   }
 
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
+
   lifecycle {
     prevent_destroy = true
 
