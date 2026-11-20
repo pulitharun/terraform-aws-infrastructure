@@ -10,6 +10,15 @@ resource "aws_vpc" "terraform_lab" {
   }
 }
 
+# Secure the VPC default security group
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.terraform_lab.id
+
+  tags = {
+    Name = "terraform-lab-default-sg"
+  }
+}
+
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.terraform_lab.id
   cidr_block              = "10.0.1.0/24"
