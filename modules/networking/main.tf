@@ -60,6 +60,8 @@ resource "aws_route_table_association" "public_assoc" {
 }
 
 resource "aws_security_group" "terraform_lab_sg" {
+  #checkov:skip=CKV2_AWS_5:Security group attachment to EC2 verified using AWS CLI; cross-module reference is not recognised by Checkov.
+
   name        = "terraform-lab-sg"
   description = "Security group for Terraform AWS lab"
   vpc_id      = aws_vpc.terraform_lab.id
