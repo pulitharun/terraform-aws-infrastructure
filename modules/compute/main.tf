@@ -9,10 +9,12 @@ resource "aws_key_pair" "terraform_lab_key" {
 }
 
 resource "aws_instance" "terraform_lab_ec2" {
-  #checkov:skip=CKV_AWS_135: t3.micro provides EBS optimisation by default; enabling the explicit Terraform flag would force replacement of the existing instance.
+  #checkov:skip=CKV_AWS_135:t3.micro provides EBS optimisation by default; enabling the explicit flag would force replacement.
+  #checkov:skip=CKV_AWS_126:Basic CloudWatch monitoring is intentionally used to minimise lab costs.
 
   ami                         = "ami-04b938437b69a2c9c"
   instance_type               = "t3.micro"
+  monitoring                  = false
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [var.security_group_id]
   key_name                    = aws_key_pair.terraform_lab_key.key_name
