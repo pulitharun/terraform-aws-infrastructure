@@ -9,7 +9,6 @@ resource "aws_key_pair" "terraform_lab_key" {
 }
 
 #checkov:skip=CKV_AWS_135: t3.micro provides EBS optimisation by default; enabling the explicit Terraform flag would force replacement of the existing instance.
-
 resource "aws_instance" "terraform_lab_ec2" {
   ami                         = "ami-04b938437b69a2c9c"
   instance_type               = "t3.micro"
